@@ -15,4 +15,10 @@ class Estoque {
         $stmt = DB::getConnection()->prepare("UPDATE estoques SET quantidade = ? WHERE id = ?");
         $stmt->execute([$quantidade, $id]);
     }
+
+    public static function getByProdutoAndVariacao($produto_id, $variacao) {
+        $stmt = DB::getConnection()->prepare("SELECT * FROM estoques WHERE produto_id = ? AND variacao = ?");
+        $stmt->execute([$produto_id, $variacao]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
