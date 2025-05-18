@@ -26,6 +26,6 @@ switch ($action) {
     case 'index':
     default:
         $produtos = Produto::all();
-        include __DIR__ . '/../views/produtos/form.php';
+        include __DIR__ . '/../views/produtos/index.php';
         break;
 }

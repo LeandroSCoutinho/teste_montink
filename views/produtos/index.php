@@ -1,5 +1,10 @@
 <?php
-$produtos = Produto::all();
+ require_once '../../config/db.php';
+ require_once '../../models/Produto.php';
+ require_once '../../models/Estoque.php';
+
+
+   $produtos = Produto::all();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,7 +15,12 @@ $produtos = Produto::all();
 </head>
 <body>
 <div class="container mt-5">
-  <h2>Cadastro de Produto</h2>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Cadastro de Produto</h2>
+    <a href="/teste_montink/views/carrinho/index.php" class="btn btn-outline-primary">
+      🛒 Ver Carrinho
+    </a>
+  </div>
   <form method="POST" action="controllers/ProdutoController.php?action=store">
     <div class="mb-3">
       <label>Nome</label>

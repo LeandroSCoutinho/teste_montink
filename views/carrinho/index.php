@@ -38,6 +38,9 @@ $total = $subtotal + $frete;
 
   <?php if (empty($carrinho)): ?>
     <div class="alert alert-warning">Seu carrinho está vazio.</div>
+    <a href="../../views/produtos/index.php" class="btn btn-outline-primary">
+      Voltar a comprar
+    </a>
   <?php else: ?>
     <table class="table table-bordered bg-white">
       <thead class="table-secondary">
@@ -92,8 +95,12 @@ $total = $subtotal + $frete;
       <?php if (!$cep): ?>
         <div class="alert alert-danger">Informe o CEP para continuar com a finalização do pedido.</div>
       <?php endif; ?>
-
-      <a href="<?= $cep ? 'finalizar.php' : '#' ?>" class="btn btn-success <?= !$cep ? 'disabled' : '' ?>">Finalizar Pedido</a>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <a href="<?= $cep ? 'PedidoController.php' : '#' ?>" class="btn btn-success <?= !$cep ? 'disabled' : '' ?>">Finalizar Pedido</a>
+    <a href="../../views/produtos/index.php" class="btn btn-outline-primary">
+      Voltar a comprar
+    </a>
+  </div>
     </div>
   <?php endif; ?>
 </div>
